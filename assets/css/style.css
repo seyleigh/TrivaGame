@@ -1,0 +1,26 @@
+body {
+    background-image: url(https://www.nbcstore.com/media/catalog/product/cache/1/cp_image_section/500x/9df78eab33525d08d6e5fb8d27136e95/t/h/theoffice_starmugs_alldesigns_ro.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.btn {
+    background-color: rgb(97, 58, 58);
+}
+.btn:hover {
+    background-color: darkgray;
+}
+
+.choice {
+    border: 1px solid rgb(136, 136, 136);
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#trivia, #time{
+background-image: radial-gradient(rgba(209, 209, 209, 0.8), rgba(209, 209, 209, 0.8), rgba(209, 209, 209, 0.8), rgba(209, 209, 209, 0.0));
+}
+
+img {
+    padding-bottom: 30px;
+}
+
