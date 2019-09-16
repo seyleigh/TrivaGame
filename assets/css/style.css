@@ -2,9 +2,21 @@ body {
     background-image: url(https://www.nbcstore.com/media/catalog/product/cache/1/cp_image_section/500x/9df78eab33525d08d6e5fb8d27136e95/t/h/theoffice_starmugs_alldesigns_ro.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: 'Special Elite', cursive;
 }
+
+
+.jumbotron {
+    background-image: url(../images/pablo-varela-hEw2qUhk-fw-unsplash.jpg);
+    opacity: 0.9;
+    background-size: cover;
+    color: white;
+    padding-bottom: 470px;
+}
+
 .btn {
     background-color: rgb(97, 58, 58);
+    color: white;
 }
 .btn:hover {
     background-color: darkgray;
@@ -16,11 +28,15 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
-#trivia, #time{
+
+
+#trivia, #time {
 background-image: radial-gradient(rgba(209, 209, 209, 0.8), rgba(209, 209, 209, 0.8), rgba(209, 209, 209, 0.8), rgba(209, 209, 209, 0.0));
 }
 
 img {
     padding-bottom: 30px;
 }
+
+
 

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-const quiztions = [
+var quiztions = [
 {
     question: "Which of Angela's cats did Dwight freeze?",
      choices: ["Bandit", "Sprinkles", "Sparkles", "Princess Lady"],
@@ -43,7 +43,7 @@ const quiztions = [
 }
 ];
 
-const yaygif = [
+var yaygif = [
     './assets/images/fuckutoby.gif',
     './assets/images/dwightwig.gif',
     './assets/images/PDA.gif',
@@ -54,7 +54,7 @@ const yaygif = [
     './assets/images/kgb.gif'
 ];
 
-const boogif = [
+var boogif = [
     './assets/images/nothing.gif',
     './assets/images/honomo.gif',
     './assets/images/displeased.gif',
@@ -71,8 +71,10 @@ var score = 0;
 var wrong = 0;
 var clock;
 
+$('#time').hide();
+
 function nextQ() {
-    const noMoQuestions = (quiztions.length - 1) === activeQuestion;
+    var noMoQuestions = (quiztions.length - 1) === activeQuestion;
     if (noMoQuestions) {
         // console.log('Game over');
         finalTally();
@@ -102,12 +104,12 @@ function showQuestion() {
     timer = 30;
     clock = setInterval(countDown, 1000)
 
-    const question = quiztions[activeQuestion].question;
-    const choices = quiztions[activeQuestion].choices;
+    var question = quiztions[activeQuestion].question;
+    var choices = quiztions[activeQuestion].choices;
     
     $("#time").html('Time left: ' + timer);
     $("#trivia").html(`
-    <h3>${question}</h3>
+    <h4>${question}</h4>
     ${showChoices(choices)}
     `);
 }
@@ -116,15 +118,15 @@ function showChoices (choices) {
     var result = '';
 
     for (var i = 0; i < choices.length; i++) {
-        result += `<p class="btn btn-dark m-3 choice" data-answer="${choices[i]}">${choices[i]}</p>`
+        result += `<p class="btn btn-light m-3 choice" data-answer="${choices[i]}">${choices[i]}</p>`
     }
     return result;
 }
 
 $(document).on('click', '.choice', function(){
     clearInterval(clock)
-    const userChoice = $(this).attr('data-answer');
-    const answer = quiztions[activeQuestion].answer;
+    var userChoice = $(this).attr('data-answer');
+    var answer = quiztions[activeQuestion].answer;
 
     if (answer === userChoice) {
         score++;
@@ -141,10 +143,10 @@ $(document).on('click', '.choice', function(){
 });
 
 function finalTally() {
-    const total = `
-        <p>You got ${score} right.</p>
-        <p>You missed ${wrong}.</p>
-        <button class="btn btn-outline-dark" id="restart">Try again?</button>
+    var total = `
+        <h3>You got ${score} right.</h3>
+        <h3>You missed ${wrong}.</h3>
+        <button class="btn btn-dark btn-lg mb-3" id="restart">Try again?</button>
     `;
     $("#trivia").html(total);
 }
@@ -160,30 +162,31 @@ $(document).on('click', '#restart', function() {
 });
 
 function shuffleGif(gif) {
-    const shuffle = Math.floor(Math.random() * gif.length);
-    const shuffleGif = gif[shuffle];
+    var shuffle = Math.floor(Math.random() * gif.length);
+    var shuffleGif = gif[shuffle];
     return shuffleGif;
 }
 
 function runGif(status) {
-    const answer = quiztions[activeQuestion].answer;
+    var answer = quiztions[activeQuestion].answer;
 
     if (status === 'right') {
         $('#trivia').html(`
-        <p class="load-gif">Yay, you're right</p>
+        <h3 class="load-gif">Yay, you're right</h3>
         <img src="${shuffleGif(yaygif)}"/>
 
         `)
     } else {
         $('#trivia').html(`
-        <p class="load-gif">NOOOOOOOOO!!!</p>
-        <p class="load-gif">The correct choice was: <strong>${answer}</strong></p>
+        <h4 class="load-gif">NOOOOOOOOO!!!</h4>
+        <h4 class="load-gif">The correct choice was: <strong>${answer}</strong></h4>
         <img src="${shuffleGif(boogif)}"/>
         `)
     }
 }
 
 $('#doIt').click(function() {
+    $('#time').show();
     $('#doIt').remove();
     $('#instructions').remove();
     $('#time').html(timer);
