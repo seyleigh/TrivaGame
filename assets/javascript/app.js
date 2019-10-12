@@ -27,7 +27,7 @@ var quiztions = [
     answer: "Phyllis"
 },
 {
-    question: "Name of the stripper that was hried for Bob Vance's bachelor party?",
+    question: "Name of the stripper that was hired for Bob Vance's bachelor party?",
     choices: ["Catherine", "Elizabeth", "Michelle", "Ashley"],
     answer: "Elizabeth"
 },
